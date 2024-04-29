@@ -18,6 +18,11 @@ sudo --user=ros pip install black urdf-parser-py
 
 # clean up apt
 
+#     
+su ros
+wget -O /home/ros/apps/FreeCAD.AppImage https://github.com/FreeCAD/FreeCAD/releases/download/0.21.2/FreeCAD-0.21.2-Linux-x86_64.AppImage
+chmod +x /home/ros/apps/FreeCAD.AppImage
+
 
 # Make it so that sourcing happens automatically
 echo "source /opt/ros/humble/setup.bash" >> /home/ros/.bashrc
