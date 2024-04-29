@@ -90,6 +90,13 @@
             "type": "shell",
             "command": "bash .vscode/scripts/maci_gazebo.sh",
             "problemMatcher": []
+        },
+        {
+            "label": "Maci __V2___ Gazebo",
+            "detail": "Run MACI Robot Arm simulation",
+            "type": "shell",
+            "command": "bash .vscode/scripts/maci_v2_gazebo.sh",
+            "problemMatcher": []
         }
     ]
 }
