@@ -5,7 +5,10 @@
     <xacro:include filename="$(find first_robot_freecad)/urdf/FirstRobot.urdf" />
 
     <!-- Add ROS2 Control to the wheel joints -->
-    <ros2_control name="magni" type="system">
+    <ros2_control name="first_robot" type="system">
+        <hardware>
+            <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        </hardware>
         <joint name="left_wheel_joint">
             <command_interface name="velocity">
                 <param name="min">-10</param>
@@ -28,19 +31,7 @@
         </joint>
     </ros2_control>
 
-    <!-- Setup plugins for control -->
-    <gazebo>
-        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-            <controller_manager_prefix_node_name>/krytn</controller_manager_prefix_node_name>
-            <ros>
-                <remapping>diff_drive_base_controller/odometry:=odom</remapping>
-                <remapping>diff_drive_base_controller/tf_odometry:=tf</remapping>
-                <remapping>diff_drive_base_controller/cmd_vel_unstamped:=cmd_vel</remapping>
-            </ros>
-            <parameters>$(find first_robot)/config/diffdrive_control.yaml</parameters>
-        </plugin>
 
-    </gazebo>
 
     <!-- Adding a lidar sensor to the base link, feel free to change the reference to the name of a link that you want the lidar to be in -->
 
@@ -73,6 +64,30 @@
             <update_rate>20</update_rate>
             <visualize>false</visualize>
         </sensor>
+    </gazebo>
+
+    <!-- Add a dummy base_footprint link to remove error messages about it. -->
+    <link name="base_footprint"/>
+    <joint name="base_fp_link" type="fixed">
+        <parent link="base_footprint" />
+        <child link="base_link" />
+    </joint>
+
+    <!-- Setup plugins for control and sensors -->
+    <gazebo>
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+            <ros>
+                <remapping>diff_drive_base_controller/odometry:=odom</remapping>
+                <remapping>diff_drive_base_controller/tf_odometry:=tf</remapping>
+                <remapping>diff_drive_base_controller/cmd_vel_unstamped:=cmd_vel</remapping>
+            </ros>
+            <parameters>$(find first_robot)/config/diffdrive_control.yaml</parameters>
+        </plugin>
+
+        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+
     </gazebo>
 
 </robot>

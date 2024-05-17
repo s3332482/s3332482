@@ -6,6 +6,7 @@ from ament_index_python.packages import get_package_share_directory
 from os.path import join 
 from launch.substitutions import Command
 from pathlib import Path
+import os
 
 def generate_launch_description():
 
@@ -20,16 +21,6 @@ def generate_launch_description():
     # Step 1. Process robot file. 
     robot = IncludeLaunchDescription(join(base_path, "launch","spawn_robot.launch.py"))
 
-    # Gazebo Bridge: This brings data (sensors/clock) out of gazebo into ROS.
-    bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-                   '/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
-                   '/lidar/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked' ],
-        output='screen'
-        )
-
     # The controller is setup to put everything in the /krytn frame. We need to construct a static transform to bring it back into the un-namespaced frames. 
     static_pub = Node(package="tf2_ros", 
                       executable="static_transform_publisher",
@@ -40,15 +31,25 @@ def generate_launch_description():
         package="rqt_robot_steering",
         executable="rqt_robot_steering",
     )
+    
+    resources_package = 'first_robot_freecad'
 
-    # Step 5: Enable the ros2 controllers
-    start_controllers  = Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["-c","/controller_manager",
-                             'joint_state_broadcaster', 'diff_drive_base_controller'],
-                output="screen",
-            )
+    # Make path to resources dir without last package_name fragment.
+    path_to_share_dir_clipped = ''.join(get_package_share_directory(resources_package).rsplit('/' + resources_package, 1))
 
-    return LaunchDescription([gazebo_sim, bridge, static_pub, robot, 
-                              robot_steering, start_controllers])
+    # Gazebo hint for resources.
+    os.environ['GZ_SIM_RESOURCE_PATH'] = path_to_share_dir_clipped
+
+    # Ensure `SDF_PATH` is populated since `sdformat_urdf` uses this rather
+    # than `GZ_SIM_RESOURCE_PATH` to locate resources.
+    if "GZ_SIM_RESOURCE_PATH" in os.environ:
+        gz_sim_resource_path = os.environ["GZ_SIM_RESOURCE_PATH"]
+
+        if "SDF_PATH" in os.environ:
+            sdf_path = os.environ["SDF_PATH"]
+            os.environ["SDF_PATH"] = sdf_path + ":" + gz_sim_resource_path
+        else:
+            os.environ["SDF_PATH"] = gz_sim_resource_path
+
+    return LaunchDescription([gazebo_sim, static_pub, robot, 
+                              robot_steering])

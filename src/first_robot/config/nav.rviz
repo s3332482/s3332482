@@ -59,7 +59,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /krytn/robot_description
+        Value: /robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -243,9 +243,7 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
-        krytn/base_footprint:
-          Value: true
-        krytn/odom:
+        odom:
           Value: true
         left_caster_wheel:
           Value: true
@@ -298,36 +296,25 @@ Visualization Manager:
             krytn/base_footprint:
               base_footprint:
                 base_link:
-                  left_caster_wheel:
-                    {}
-                  left_wheel:
-                    {}
-                  right_caster_wheel:
-                    {}
-                  right_wheel:
-                    {}
-                  rplidar:
-                    {}
+                  left_caster_wheel: {}
+                  left_wheel: {}
+                  right_caster_wheel: {}
+                  right_wheel: {}
+                  rplidar: {}
                   sensor_d435i_bottom_screw_frame:
                     sensor_d435i_link:
                       sensor_d435i_accel_frame:
-                        sensor_d435i_accel_optical_frame:
-                          {}
+                        sensor_d435i_accel_optical_frame: {}
                       sensor_d435i_color_frame:
-                        sensor_d435i_color_optical_frame:
-                          {}
+                        sensor_d435i_color_optical_frame: {}
                       sensor_d435i_depth_frame:
-                        sensor_d435i_depth_optical_frame:
-                          {}
+                        sensor_d435i_depth_optical_frame: {}
                       sensor_d435i_gyro_frame:
-                        sensor_d435i_gyro_optical_frame:
-                          {}
+                        sensor_d435i_gyro_optical_frame: {}
                       sensor_d435i_infra1_frame:
-                        sensor_d435i_infra1_optical_frame:
-                          {}
+                        sensor_d435i_infra1_optical_frame: {}
                       sensor_d435i_infra2_frame:
-                        sensor_d435i_infra2_optical_frame:
-                          {}
+                        sensor_d435i_infra2_optical_frame: {}
       Update Interval: 0
       Value: true
     - Alpha: 0.699999988079071

@@ -25,7 +25,6 @@ def generate_launch_description():
         output='both',
         parameters=[{'robot_description':robot_xml, 
                      'use_sim_time':True,}],
-          
     )
 
     # Step 3. Spawn a robot in gazebo by listening to the published topic.
@@ -39,28 +38,21 @@ def generate_launch_description():
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=[
+        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
                    '/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
                    '/lidar/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked'
                    ],
         output='screen',
-        parameters=[("tf_prefix","/krytn")]
         )
-
-    # A gui tool for easy tele-operation.
-    robot_steering = Node(
-        package="rqt_robot_steering",
-        executable="rqt_robot_steering",
-    )
 
     # Step 5: Enable the ros2 controllers
     start_controllers  = Node(
                 package="controller_manager",
                 executable="spawner",
-                arguments=[ '-c', "/controller_manager",
+                arguments=[
                     'joint_state_broadcaster', 'diff_drive_base_controller'],
                 output="screen",
             )
     
     return LaunchDescription([ robot, robot_state_publisher, bridge,
-                              robot_steering, start_controllers])
+                              start_controllers])
