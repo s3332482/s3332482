@@ -100,9 +100,16 @@
         },
         {
             "label": "Run FreeCAD first robot",
-            "detail": "Run run the generated Gazebo file",
+            "detail": "Run run the generated RViz/Gazebo file",
             "type": "shell",
             "command": "bash .vscode/scripts/first_robot_gazebo.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "First Robot - GameCity",
+            "detail": "Run run the First Robot in Gamecity",
+            "type": "shell",
+            "command": "bash .vscode/scripts/first_robot_gamecity.sh",
             "problemMatcher": []
         }
     ]
