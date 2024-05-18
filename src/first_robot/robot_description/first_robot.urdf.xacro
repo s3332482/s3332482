@@ -90,4 +90,103 @@
 
     </gazebo>
 
+
+    <!-- Increase friction of wheels so they don't slip as much -->
+
+    <gazebo reference="left_wheel">
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1.0</mu>
+                        <mu2>1.0</mu2>
+                        <fdir1>0 0 1</fdir1>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                        <min_depth>0.001</min_depth>
+                        <kp>1e8</kp>
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>10000</mu>
+                        <mu2>10000</mu2>
+                        <fdir1>0 0 1</fdir1>
+                        <slip1>0.001</slip1>
+                        <slip2>0.001</slip2>
+                        <min_depth>0.001</min_depth>
+                        <kp>1e8</kp>
+                    </ode>
+                    <bullet>
+                        <friction>1</friction>
+                        <friction2>1</friction2>
+                        <rolling_friction>0.1</rolling_friction>
+                    </bullet>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+
+    <!-- Reduce friction of base link so it will slide -->
+    <gazebo reference="base_link">
+        <collision>
+            <surface>
+                <contact>
+                    <min_depth>0.0001</min_depth>
+                </contact>
+                <friction>
+                    <ode>
+                        <mu>0.01</mu>
+                        <mu1>0.01</mu1>
+                        <mu2>0.01</mu2>
+                        <slip1>0.01</slip1>
+                        <slip2>0.01</slip2>
+                        <kp>1e-1</kp>
+                        <kd>1e-1</kd>
+                    </ode>
+                    <bullet>
+                        <friction>1</friction>
+                        <friction2>1</friction2>
+                        <rolling_friction>0.1</rolling_friction>
+                    </bullet>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+
+    <!-- Reduce friction of base link so it will slide -->
+    <gazebo reference="caster_wheel">
+        <collision>
+            <surface>
+                <contact>
+                    <min_depth>0.0001</min_depth>
+                </contact>
+                <friction>
+                    <ode>
+                        <mu>0.01</mu>
+                        <mu1>0.01</mu1>
+                        <mu2>0.01</mu2>
+                        <slip1>0.01</slip1>
+                        <slip2>0.01</slip2>
+                        <kp>1e-1</kp>
+                        <kd>1e-1</kd>
+                    </ode>
+                    <bullet>
+                        <friction>1</friction>
+                        <friction2>1</friction2>
+                        <rolling_friction>0.1</rolling_friction>
+                    </bullet>
+                </friction>
+
+            </surface>
+        </collision>
+    </gazebo>
+
 </robot>

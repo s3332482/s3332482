@@ -1,5 +1,5 @@
 {
-    "name": "Become a Roboticist - Easy Mode",
+    "name": "Become a Roboticist - Backup Path",
     "dockerComposeFile": [
         "docker-compose.yml"
     ],
