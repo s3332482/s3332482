@@ -1,9 +1,9 @@
 {
     "name": "Become a Roboticist - Backup Path",
     "dockerComposeFile": [
-        "docker-compose.yml"
+        "docker-compose-wsl.yml"
     ],
-    "service": "humble-desktop-full",
+    "service": "bar-desktop-full",
     "workspaceFolder": "/workspace/",
     "customizations": {
         "vscode": {
@@ -38,8 +38,8 @@
                 "C_Cpp.clang_format_path": "clang-format",
                 "C_Cpp.clang_format_fallbackStyle": "Google",
                 "C_Cpp.formatting": "default",
-                "ros.distro": "humble",
-                "ros.packagePath": "/opt/ros/humble/share/"
+                "ros.distro": "jazzy",
+                "ros.packagePath": "/opt/ros/jazzy/share/"
             }
         }
     }
