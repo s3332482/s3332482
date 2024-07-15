@@ -68,13 +68,13 @@
     <visual>
       <!--Sphere001-->
       <geometry>
-        <sphere radius="0.04"/>
+        <sphere radius="0.02"/>
       </geometry>
     </visual>
     <collision>
       <!--Sphere001-->
       <geometry>
-        <sphere radius="0.04"/>
+        <sphere radius="0.02"/>
       </geometry>
     </collision>
     <inertial>
