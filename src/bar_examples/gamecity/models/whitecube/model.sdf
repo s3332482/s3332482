@@ -5,7 +5,7 @@
       <visual name='visual'>
         <geometry>
           <mesh>
-            <uri>model://whitecube/meshes/whitecube.dae</uri>
+            <uri>model://gamecity/models/whitecube/meshes/whitecube.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -13,7 +13,7 @@
       <collision name='collision'>
         <geometry>
           <mesh>
-            <uri>model://whitecube/meshes/whitecube.dae</uri>
+            <uri>model://gamecity/models/whitecube/meshes/whitecube.dae</uri>
           </mesh>
         </geometry>
       </collision>

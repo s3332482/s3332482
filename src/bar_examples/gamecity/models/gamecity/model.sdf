@@ -5,7 +5,7 @@
       <visual name='visual'>
         <geometry>
           <mesh>
-            <uri>model://gamecity/meshes/gamecity.dae</uri>
+            <uri>model://gamecity/models/gamecity/meshes/gamecity.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -13,7 +13,7 @@
       <collision name='collision'>
         <geometry>
           <mesh>
-            <uri>model://simple_gamecity/meshes/simple_gamecity.dae</uri>
+            <uri>model://gamecity/models/simple_gamecity/meshes/simple_gamecity.dae</uri>
           </mesh>
         </geometry>
       </collision>

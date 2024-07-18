@@ -9,13 +9,15 @@
     <collision>
       <surface>
         <friction>
-          <mu>0.1</mu>
-          <mu1>0.1</mu1>
-          <mu2>0.1</mu2>
-          <slip1>0</slip1>
-          <slip2>0</slip2>
+          <ode>
+            <mu>0.1</mu>
+            <mu2>0.1</mu2>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+          </ode>
         </friction>
       </surface>
+      <max_contacts>1</max_contacts>
     </collision>
   </xacro:macro>
 
@@ -32,6 +34,7 @@
           </ode>
         </friction>
       </surface>
+      <max_contacts>1</max_contacts>
     </collision>
   </xacro:macro>
 
@@ -139,6 +142,7 @@
     <link name="${prefix}_caster_wheel">
       <origin xyz="-0.37 ${reflect*0.169} ${-wheel_r+0.04}" rpy="0 0 0" />
       <collision>
+
         <origin xyz="-0.27 ${reflect*0.169} ${-wheel_r+0.04}" rpy="0 0 0" />
         <geometry>
           <sphere radius="0.04"/>

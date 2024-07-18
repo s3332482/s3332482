@@ -67,47 +67,47 @@
       <self_collide>false</self_collide>
     </model>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//simple_gamecity</uri>
+      <uri>model://gamecity/models/simple_gamecity</uri>
       <name>simple_gamecity</name>
       <pose>-3.90177 -5.01456 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc</name>
       <pose>-2.24863 -1.51957 0 0 0 -0.61182</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//greentable</uri>
+      <uri>model://gamecity/models/greentable</uri>
       <name>gt</name>
       <pose>-1.62491 -0.137829 0.826396 0 0 -0.495364</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc_1</name>
       <pose>-2.70961 -2.25438 0 0 0 -0.61182</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc_2</name>
       <pose>-3.12219 -2.91807 0 0 0 -0.61182</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc_3</name>
       <pose>-3.70281 -3.56425 0 0 0 -0.61182</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc_4</name>
       <pose>-4.06743 -4.09195 0 0 0 -0.61182</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc_5</name>
       <pose>-4.37422 -4.56196 0 0 0 -0.61182</pose>
     </include>
     <include>
-      <uri>file:///workspace/install/krytn/share/krytn/models//whitecube</uri>
+      <uri>model://gamecity/models/whitecube</uri>
       <name>wc_6</name>
       <pose>-4.70737 -5.02963 0 0 0 -0.61182</pose>
     </include>
