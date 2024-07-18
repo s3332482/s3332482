@@ -2,6 +2,11 @@
 Changelog for package twist_stamper
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.4 (2024-07-18)
+-----------------
+* Switching build system to cmake. 
+
+
 0.0.3 (2022-09-16)
 ------------------
 * fix python setuptools install error (`#1 <https://github.com/joshnewans/twist_stamper/issues/1>`_)

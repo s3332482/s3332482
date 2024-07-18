@@ -22,12 +22,6 @@ install(DIRECTORY
   DESTINATION
   share/${PROJECT_NAME}/models/${PROJECT_NAME}
 )
-# Create symlink to meshes folder, otherwise RVIz won't find the model
-install(CODE "execute_process( \
-    COMMAND ${CMAKE_COMMAND} -E create_symlink \
-    ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/meshes \
-    ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/models/${PROJECT_NAME}/meshes  \
-    )"
-)
+
 
 
