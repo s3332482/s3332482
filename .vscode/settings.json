@@ -12,5 +12,8 @@
     },
     "python.formatting.provider": "black",
     "ros.rosSetupScript": "~/huckfin/install/setup.bash",
-    "ros.distro": "humble"
+    "ros.distro": "humble",
+    "llm.backend": "ollama",
+    "llm.configTemplate": "ollama/codellama:7b",
+    "llm.modelId": "codellama:7b"
 }

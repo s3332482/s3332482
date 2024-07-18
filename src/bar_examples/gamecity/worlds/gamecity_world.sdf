@@ -67,7 +67,7 @@
       <self_collide>false</self_collide>
     </model>
     <include>
-      <uri>models://gamecity</uri>
+      <uri>models://gamecity/worlds/gamecity</uri>
       <name>gamecity</name>
       <pose>-3.90177 -5.01456 0 0 -0 0</pose>
     </include>

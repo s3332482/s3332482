@@ -3,7 +3,7 @@
 
   <xacro:property name="wheel_r" value="0.1" />
   <xacro:property name="wheel_xpos" value="0.11" />
-  <xacro:include filename="$(find krytn)/robot_description/magni/inertial.xacro" />
+  <xacro:include filename="$(find magni_description)/urdf/inertial.xacro" />
 
   <xacro:macro name="low_friction">
     <collision>
@@ -48,7 +48,7 @@
     <visual>
       <origin xyz="${-wheel_xpos} 0 ${-wheel_r+0.071}" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(find krytn)/robot_description/magni/meshes/magni_body.dae" />
+        <mesh filename="file://$(find magni_description)/meshes/magni_body.dae" />
       </geometry>
     </visual>
 
@@ -104,7 +104,7 @@
       <visual>
         <origin xyz="${-0.071*reflect} 0 0" rpy="0 ${(reflect-1)*pi/2} 0" />
         <geometry>
-          <mesh filename="file://$(find krytn)/robot_description/magni/meshes/front_wheel.dae" />
+          <mesh filename="file://$(find magni_description)/meshes/front_wheel.dae" />
         </geometry>
       </visual>
 
@@ -149,7 +149,7 @@
         <origin xyz="-0.25 ${reflect*0.169} 0" rpy="0 0 ${pi}" />
 
         <geometry>
-          <mesh filename="file://$(find krytn)/robot_description/magni/meshes/caster_wheel.dae" />
+          <mesh filename="file://$(find magni_description)/meshes/caster_wheel.dae" />
         </geometry>
       </visual>
 
