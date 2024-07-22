@@ -16,7 +16,8 @@ find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
 install(PROGRAMS
-   maci/maci.py
+   maci/gripper.py
+   maci/arm.py
    DESTINATION lib/${PROJECT_NAME}
 )
 
