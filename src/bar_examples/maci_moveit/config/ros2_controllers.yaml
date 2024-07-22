@@ -7,7 +7,7 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    finger_control_controller:
+    gripper_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
@@ -24,16 +24,21 @@ ur5_controller:
       - ur5_wrist_2_joint
       - ur5_wrist_3_joint
     command_interfaces:
-      []
+      - position
     state_interfaces:
-      []
+      - position
+      - velocity
     allow_nonzero_velocity_at_trajectory_end: true
-finger_control_controller:
+gripper_controller:
   ros__parameters:
     joints:
       - finger_joint
+      - left_inner_finger_joint
+      - right_outer_knuckle_joint
+      - right_inner_finger_joint
     command_interfaces:
-      []
+      - position
     state_interfaces:
-      []
+      - position
+      - velocity
     allow_nonzero_velocity_at_trajectory_end: true

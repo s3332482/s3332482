@@ -2,7 +2,7 @@ version: '3'
 services:
   bar-desktop-full:
     image: johnny555/bar:v2
-    #build: .
+    build: .
     user: ros
     volumes:
       - ../:/workspace:cached

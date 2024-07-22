@@ -19,13 +19,11 @@ def generate_launch_description():
                                           launch_arguments=[("gz_args",  cafe_world_uri + " -r" )])
 
     
-
     # Gazebo Bridge: This brings data (sensors/clock) out of gazebo into ROS.
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
-                   ],
+        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock' ],
         output='screen'        )
 
     maci = IncludeLaunchDescription(join(get_package_share_directory("maci"), "launch","spawn_maci.launch.py"))
