@@ -14,9 +14,9 @@ def generate_launch_description():
     # Start a simulation with the cafe world
     cafe_world_uri = join(get_package_share_directory("gamecity"), "worlds", "gamecity.sdf")
     path = join(get_package_share_directory("ros_gz_sim"), "launch", "gz_sim.launch.py")
-    
+    #cafe_world_uri="empty.sdf"
     gazebo_sim = IncludeLaunchDescription(path,
-                                          launch_arguments=[("gz_args",  cafe_world_uri+" --physics-engine gz-physics-bullet-featherstone-plugin")])
+                                          launch_arguments=[("gz_args",  cafe_world_uri + " -r" )])
 
     
 
@@ -32,4 +32,5 @@ def generate_launch_description():
     moveit = IncludeLaunchDescription(join(get_package_share_directory("maci"), "launch","moveit.launch.py"))
 
 
-    return LaunchDescription([gazebo_sim, bridge, maci])
+    return LaunchDescription([gazebo_sim, bridge, maci, moveit
+                              ])

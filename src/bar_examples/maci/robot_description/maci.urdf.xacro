@@ -44,12 +44,15 @@
         <xacro:ros2_position_controller joint_name="ur5_wrist_3_joint" />
 
         <xacro:ros2_position_controller joint_name="finger_joint" />
-   
+        <xacro:ros2_position_controller joint_name="left_inner_finger_joint" />
+        <xacro:ros2_position_controller joint_name="right_outer_knuckle_joint" />
+        <xacro:ros2_position_controller joint_name="right_inner_finger_joint" />   
     </ros2_control>
 
     <gazebo>
     <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
             <parameters>$(find maci)/config/ros2_control.yaml</parameters>
+            <hold_joints>True</hold_joints>
         </plugin>
     </gazebo>
 </robot>

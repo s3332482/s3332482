@@ -19,7 +19,7 @@ maci_joint_state_broadcaster:
 
 maci_controller:
   ros__parameters:
-    hold_on: True
+    start_with_holding: True
     joints:
       - ur5_shoulder_pan_joint
       - ur5_shoulder_lift_joint
@@ -38,6 +38,9 @@ gripper_controller:
     hold_on: True
     joints:
       - finger_joint
+      - left_inner_finger_joint
+      - right_outer_knuckle_joint
+      - right_inner_finger_joint
     command_interfaces:
       - position
     state_interfaces:

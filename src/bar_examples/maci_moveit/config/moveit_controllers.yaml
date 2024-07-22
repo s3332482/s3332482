@@ -4,10 +4,10 @@ moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControll
 
 moveit_simple_controller_manager:
   controller_names:
-    - ur5_controller
-    - finger_control_controller
+    - maci_controller
+    - gripper_controller
 
-  ur5_controller:
+  maci_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
@@ -20,11 +20,14 @@ moveit_simple_controller_manager:
       - ur5_wrist_3_joint
     action_ns: follow_joint_trajectory
     default: true
-  finger_control_controller:
+  gripper_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
     joints:
       - finger_joint
+      - left_inner_finger_joint
+      - right_outer_knuckle_joint
+      - right_inner_finger_joint
     action_ns: follow_joint_trajectory
     default: true
