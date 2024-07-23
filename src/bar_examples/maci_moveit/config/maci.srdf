@@ -47,6 +47,7 @@
     <disable_collisions link1="left_inner_finger" link2="left_inner_finger_pad" reason="Adjacent"/>
     <disable_collisions link1="left_inner_finger" link2="left_outer_finger" reason="Adjacent"/>
     <disable_collisions link1="left_inner_finger" link2="left_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="left_inner_finger" link2="realsense_link" reason="User"/>
     <disable_collisions link1="left_inner_finger" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="left_inner_finger" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="left_inner_finger" link2="robotiq_arg2f_base_link" reason="Never"/>
@@ -55,6 +56,7 @@
     <disable_collisions link1="left_inner_finger" link2="ur5_wrist_3_link" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="left_outer_finger" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="left_outer_knuckle" reason="Never"/>
+    <disable_collisions link1="left_inner_finger_pad" link2="realsense_link" reason="User"/>
     <disable_collisions link1="left_inner_finger_pad" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="robotiq_arg2f_base_link" reason="Never"/>
@@ -62,6 +64,7 @@
     <disable_collisions link1="left_inner_finger_pad" link2="ur5_wrist_2_link" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="ur5_wrist_3_link" reason="Never"/>
     <disable_collisions link1="left_outer_finger" link2="left_outer_knuckle" reason="Adjacent"/>
+    <disable_collisions link1="left_outer_finger" link2="realsense_link" reason="User"/>
     <disable_collisions link1="left_outer_finger" link2="right_inner_finger" reason="Never"/>
     <disable_collisions link1="left_outer_finger" link2="right_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="left_outer_finger" link2="right_outer_finger" reason="Never"/>
@@ -70,6 +73,7 @@
     <disable_collisions link1="left_outer_finger" link2="ur5_wrist_1_link" reason="Never"/>
     <disable_collisions link1="left_outer_finger" link2="ur5_wrist_2_link" reason="Never"/>
     <disable_collisions link1="left_outer_finger" link2="ur5_wrist_3_link" reason="Never"/>
+    <disable_collisions link1="left_outer_knuckle" link2="realsense_link" reason="User"/>
     <disable_collisions link1="left_outer_knuckle" link2="right_inner_finger" reason="Never"/>
     <disable_collisions link1="left_outer_knuckle" link2="right_inner_finger_pad" reason="Never"/>
     <disable_collisions link1="left_outer_knuckle" link2="right_outer_finger" reason="Never"/>
@@ -78,6 +82,18 @@
     <disable_collisions link1="left_outer_knuckle" link2="ur5_wrist_1_link" reason="Never"/>
     <disable_collisions link1="left_outer_knuckle" link2="ur5_wrist_2_link" reason="Never"/>
     <disable_collisions link1="left_outer_knuckle" link2="ur5_wrist_3_link" reason="Never"/>
+    <disable_collisions link1="realsense_link" link2="right_inner_finger" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="right_inner_finger_pad" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="right_outer_finger" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="right_outer_knuckle" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="robotiq_arg2f_base_link" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="ur5_base_link_inertia" reason="Adjacent"/>
+    <disable_collisions link1="realsense_link" link2="ur5_forearm_link" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="ur5_shoulder_link" reason="Never"/>
+    <disable_collisions link1="realsense_link" link2="ur5_upper_arm_link" reason="Default"/>
+    <disable_collisions link1="realsense_link" link2="ur5_wrist_1_link" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="ur5_wrist_2_link" reason="User"/>
+    <disable_collisions link1="realsense_link" link2="ur5_wrist_3_link" reason="User"/>
     <disable_collisions link1="right_inner_finger" link2="right_inner_finger_pad" reason="Adjacent"/>
     <disable_collisions link1="right_inner_finger" link2="right_outer_finger" reason="Adjacent"/>
     <disable_collisions link1="right_inner_finger" link2="right_outer_knuckle" reason="Never"/>
