@@ -1,9 +1,9 @@
 version: '3'
 services:
   bar-desktop-full:
-    image: johnny555/bar:v2
+    image: johnny555/scr:v2
     #build: .
-    user: ros
+    user: ubuntu
     volumes:
       - ../:/workspace:cached
       - /tmp/.X11-unix:/tmp/.X11-unix

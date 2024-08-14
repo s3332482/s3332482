@@ -1,8 +1,8 @@
 version: '3'
 services:
   bar-desktop-full:
-    image: johnny555/bar:v2
-    user: ros
+    image: johnny555/scr:v2
+    user: ubuntu
     volumes:
       - ../:/workspace:cached
 
