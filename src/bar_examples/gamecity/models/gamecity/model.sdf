@@ -9,7 +9,6 @@
           </mesh>
         </geometry>
       </visual>
-
       <collision name='collision'>
         <geometry>
           <mesh>

@@ -5,4 +5,5 @@
     <!-- Import maci urdf file -->
     <xacro:include filename="$(find maci)/robot_description/maci.urdf.xacro" />
 
+
 </robot>

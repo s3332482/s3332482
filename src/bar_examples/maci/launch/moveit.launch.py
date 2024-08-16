@@ -8,6 +8,9 @@ from os.path import join
 from launch_ros.actions import Node
 from launch.actions import IncludeLaunchDescription, ExecuteProcess
 
+from moveit_configs_utils import MoveItConfigsBuilder
+from moveit_configs_utils.launches import generate_move_group_launch
+
 
 
 def generate_launch_description():
@@ -17,5 +20,6 @@ def generate_launch_description():
     
     mg_sim_time = ExecuteProcess(cmd=["ros2", "param", "set", "/move_group", "use_sim_time","True"])
     rviz_sim_time = ExecuteProcess(cmd=["ros2", "param", "set", "/rviz", "use_sim_time","True"])
-  
+
+      
     return LaunchDescription([move_group, rviz, mg_sim_time, rviz_sim_time])
