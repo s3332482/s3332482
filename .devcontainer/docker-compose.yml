@@ -1,28 +1,15 @@
 version: '3'
 services:
   bar-desktop-full:
-    image: johnny555/scr:v2
+    image: johnny555/bar:v4
     user: ubuntu
     volumes:
       - ../:/workspace:cached
 
     environment:
-      - DISPLAY=novnc:0.0
-      - WAYLAND_DISPLAY
-      - XDG_RUNTIME_DIR
-      - PULSE_SERVER
+      - DISPLAY=:1
 
     ports:
-      - 9090:9090
-      #- 5000:5000
+      - 6080:80
 
     command: /bin/sh -c "while sleep 1000; do :; done"
-
-  novnc:
-    image: theasp/novnc:latest
-    environment:
-      - DISPLAY_WIDTH=1024
-      - DISPLAY_HEIGHT=768
-    ports:
-      - "8080:8080"
-    restart: on-failure

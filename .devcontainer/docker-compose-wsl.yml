@@ -1,7 +1,7 @@
 version: '3'
 services:
   bar-desktop-full:
-    image: johnny555/scr:v2
+    image: johnny555/bar:v3
     #build: .
     user: ubuntu
     volumes:

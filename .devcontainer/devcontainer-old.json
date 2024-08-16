@@ -1,16 +1,10 @@
 {
     "name": "Become a Roboticist",
-    "image": "johnny555/scr:v2",
-    "remoteUser": "ubuntu",
-    "overrideCommand": false,
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    "workspaceFolder": "/workspace",
-    "appPort": [
-        "6080:80"
+    "dockerComposeFile": [
+        "docker-compose-wsl.yml"
     ],
-    "containerEnv": {
-        "DISPLAY": ":1",
-    },
+    "service": "bar-desktop-full",
+    "workspaceFolder": "/workspace/",
     "customizations": {
         "vscode": {
             "extensions": [
