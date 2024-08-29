@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="krytn">
+
+    <xacro:include filename="$(find my_first_robot_freecad)/urdf/FirstRobot.urdf" />
+
+
+    <gazebo reference="caster_wheel">
+
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.1</mu>
+                        <mu2>0.1</mu2>
+                        <slip1>0</slip1>
+                        <slip2>0</slip2>
+                    </ode>
+                </friction>
+            </surface>
+            <max_contacts>1</max_contacts>
+        </collision>
+
+    </gazebo>
+
+    <gazebo reference="left_wheel">
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1.0</mu>
+                        <mu2>1.0</mu2>
+                        <fdir1>0 0 1</fdir1>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                    </ode>
+                </friction>
+            </surface>
+            <max_contacts>1</max_contacts>
+        </collision>
+
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1.0</mu>
+                        <mu2>1.0</mu2>
+                        <fdir1>0 0 1</fdir1>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                    </ode>
+                </friction>
+            </surface>
+            <max_contacts>1</max_contacts>
+        </collision>
+    </gazebo>
+
+    <!-- Configure diff drive plugin. -->
+
+
+    <!-- Configure Control of Joints -->
+    <ros2_control name="my_first_robot" type="system">
+
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+        <joint name="left_wheel_joint">
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort" />
+        </joint>
+
+        <joint name="right_wheel_joint">
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort" />
+        </joint>
+
+
+    </ros2_control>
+
+    <!-- Setup Gazebo plugins -->
+    <gazebo>
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <ros>
+                <remapping>/diff_drive_base_controller/odom:=odom</remapping>
+                <remapping>/diff_drive_base_controller/tf_odometry:=tf</remapping>
+            </ros>
+            <parameters>$(find my_first_robot)/config/ros2_control.yaml</parameters>
+        </plugin>
+
+
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+    </gazebo>
+
+
+</robot>

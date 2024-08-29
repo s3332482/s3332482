@@ -38,9 +38,10 @@ def main():
     goal.goal_time_tolerance = Duration(sec=1)
     
     tol = [JointTolerance(name=n, position=0.001, velocity=0.001) for n in traj.joint_names]
-    
+    ptol = [JointTolerance(name=n, position=1.3, velocity=0.1) for n in traj.joint_names]
+
     print(traj)
-    goal.path_tolerance = tol
+    goal.path_tolerance = ptol
     goal.goal_tolerance = tol
     
     res = ac.send_goal_async(goal)
