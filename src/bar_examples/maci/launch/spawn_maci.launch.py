@@ -37,7 +37,7 @@ def generate_launch_description():
         arguments="-topic robot_description -x -6.70 -y -9.34 -z 1.23".split(' '),
         name="spawn_robot",
         output="both"
-    )
+    )   
 
     # Step 5: Enable the ros2 controllers
     start_controllers  = Node(

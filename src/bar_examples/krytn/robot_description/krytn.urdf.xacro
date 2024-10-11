@@ -14,7 +14,31 @@
     <origin xyz="0 0 0.15" rpy="0 0 0" />
   </xacro:lidar_2d>
 
+  <link name="krtyn_tray">
+    <visual>
+      <!--Part/Body.-->
+      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://kyrtyn_tray/meshes/Krtyn_Tray_Ex2_Body.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <!--Part/Body.-->
+      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://kyrtyn_tray/meshes/Krtyn_Tray_Ex2_Body.dae"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertial_with_origin x="0.398" y="0.221" z="0.150" mass="1.0">
+      <origin xyz="-0.0 0 0" rpy="0 0 0" />
+    </xacro:box_inertial_with_origin>
+  </link>
 
+  <joint name="tray_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="krtyn_tray"/>
+    <origin rpy="0.0 -0.0 3.141592653589793" xyz="-0.09 -0.17 0.165"/>
+  </joint>
 
   <!-- Configure Control of Joints -->
   <ros2_control name="Krytn" type="system">
