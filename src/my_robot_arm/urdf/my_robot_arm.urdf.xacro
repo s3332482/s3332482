@@ -47,7 +47,7 @@
                 <mesh filename="package://my_robot_arm/meshes/Test2_finger_body.dae"/>
             </geometry>
         </collision>
-        <xacro:box_inertial_with_origin x="0.398" y="0.221" z="0.150" mass="100.0">
+        <xacro:box_inertial_with_origin x="0.398" y="0.221" z="0.150" mass="1.0">
             <origin xyz="-0.15 0 0.03" rpy="0 0 0" />
         </xacro:box_inertial_with_origin>
     </link>

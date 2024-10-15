@@ -1,15 +1,3 @@
-<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
-  <asset>
-    <contributor/>
-    <created>2024-09-29T10:04:55.737175</created>
-    <modified>2024-09-29T10:04:55.737180</modified>
-    <unit name="meter" meter="1.0"/>
-    <up_axis>Z_UP</up_axis>
-  </asset>
-  <library_visual_scenes>
-    <visual_scene id="myscene"/>
-  </library_visual_scenes>
-  <scene>
-    <instance_visual_scene url="#myscene"/>
-  </scene>
-</COLLADA>
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ccf6b12d893c1d1f5918af0ee1f40b4a100d65ecbbbbfbf8212bd123af6329f
+size 448
