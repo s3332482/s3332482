@@ -72,16 +72,16 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coffeetable/2/files/meshes/CoffeeTable.obj</uri>
-              <scale>0.0081700000000000002 0.0081700000000000002 0.0081700000000000002</scale>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/CoffeeTable</uri>
+              <scale>0.02 0.02 0.02</scale>
             </mesh>
           </geometry>
         </visual>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coffeetable/2/files/meshes/CoffeeTable.obj</uri>
-              <scale>0.0081700000000000002 0.0081700000000000002 0.0081700000000000002</scale>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/CoffeeTable</uri>
+              <scale>0.02 0.02 0.02</scale>
             </mesh>
           </geometry>
         </collision>
@@ -99,7 +99,7 @@
         </inertial>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>0.52636229991912842 -0.020473400130867958 0 0 0 0</pose>
+      <pose>0.72860800000000003 0.12618599999999999 -513987.16384670732 -3.3434600000000001e-14 -3.3434700000000002e-14 -1.6617099999999999e-24</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
@@ -110,14 +110,14 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coke/3/files/meshes/coke.obj</uri>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coke/3/files/meshes/coke.obj</uri>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
             </mesh>
           </geometry>
         </collision>
@@ -135,7 +135,79 @@
         </inertial>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>0.54121911525726318 -0.13346700370311737 0.37267899513244629 0 0 0</pose>
+      <pose>0.54449301958084106 0.042614899575710297 -514008.45963910129 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='CoffeeTable_0'>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///opt/ros/jazzy/share/CoffeeTable/model://CoffeeTable/meshes/CoffeeTable.obj</uri>
+              <scale>0.02 0.02 0.02</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///opt/ros/jazzy/share/CoffeeTable/model://CoffeeTable/meshes/CoffeeTable.obj</uri>
+              <scale>0.02 0.02 0.02</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>1.2233392749456391 -0.29872797507691778 -0.00029677052296910549 -3.3432305422946005e-14 -3.3432569082132405e-14 -1.4191451816858543e-24</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Coke_0'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///opt/ros/jazzy/share/Coke/model://Coke/meshes/coke.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///opt/ros/jazzy/share/Coke/model://Coke/meshes/coke.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.0033666666666666671</ixx>
+            <iyy>0.00086666666666666674</iyy>
+            <izz>0.0041666666666666675</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.86413002014160156 -0.25723201036453247 0.9613683819770813 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
     <light name='sun' type='directional'>
@@ -147,9 +219,9 @@
       <specular>0.200000003 0.200000003 0.200000003 1</specular>
       <attenuation>
         <range>1000</range>
-        <linear>0.01</linear>
-        <constant>0.90000000000000002</constant>
-        <quadratic>0.001</quadratic>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
       </attenuation>
       <spot>
         <inner_angle>0</inner_angle>

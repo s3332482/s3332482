@@ -1,0 +1,729 @@
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='CoffeeTable'>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/CoffeeTable</uri>
+              <scale>0.02 0.02 0.02</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/CoffeeTable</uri>
+              <scale>0.02 0.02 0.02</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.72860800000000003 0.12618599999999999 -1090871.5737302173 -3.3434600000000001e-14 -3.3434700000000002e-14 -1.6617099999999999e-24</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Coke'>
+      <static>false</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.0033666666666666671</ixx>
+            <iyy>0.00086666666666666674</iyy>
+            <izz>0.0041666666666666675</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.54449301958084106 0.042614899575710297 -1090930.7638392108 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='my_robot_arm.urdf'>
+      <joint name='ur5_base_joint' type='fixed'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>world</parent>
+        <child>ur5_base_link</child>
+      </joint>
+      <link name='ur5_base_link'>
+        <pose>-0.10000000000000001 0 0.14999999999999999 3.1415926535897931 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>4</mass>
+          <inertia>
+            <ixx>0.0044333315599999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0044333315599999999</iyy>
+            <iyz>0</iyz>
+            <izz>0.0071999999999999998</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_base_link_inertia_collision'>
+          <pose>0 0 0 0 0 -2.4492935982947059e-16</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/base.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_base_link_inertia_visual'>
+          <pose>0 0 0 0 0 -2.4492935982947059e-16</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='ur5_shoulder_pan_joint' type='revolute'>
+        <pose>0 7.7037197775489434e-34 0 0 0 -4.591690043316935e-49</pose>
+        <parent>ur5_base_link</parent>
+        <child>ur5_shoulder_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>150</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ur5_shoulder_link'>
+        <pose>-0.10000000000000098 1.1102230246251565e-16 -0.012500000000000622 -3.1415926535897931 -1.0592805408267134e-16 -3.14159265358979</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>3.7000000000000002</mass>
+          <inertia>
+            <ixx>0.010267495893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.010267495893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0066600000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_shoulder_link_collision'>
+          <pose>0 0 0 0 0 3.1415926535897931</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/shoulder.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_shoulder_link_visual'>
+          <pose>0 0 0 0 0 3.1415926535897931</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/shoulder.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='ur5_shoulder_lift_joint' type='revolute'>
+        <pose>0 -1.7347234759768071e-18 1.7347234759768071e-18 0 0 0</pose>
+        <parent>ur5_shoulder_link</parent>
+        <child>ur5_upper_arm_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>150</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ur5_upper_arm_link'>
+        <pose>-0.10000000000000098 1.1102230246251565e-16 -0.012500000000000622 -1.5707963265897928 -3.1792749469007969e-05 3.14159265358979</pose>
+        <inertial>
+          <pose>-0.21249999999999999 0 0.13800000000000001 0 1.5707963267948966 0</pose>
+          <mass>8.3930000000000007</mass>
+          <inertia>
+            <ixx>0.13388578186233249</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.13388578186233249</iyy>
+            <iyz>0</iyz>
+            <izz>0.0151074</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_upper_arm_link_collision'>
+          <pose>0 0 0.13800000000000001 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/upperarm.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_upper_arm_link_visual'>
+          <pose>0 0 0.13800000000000001 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/upperarm.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='ur5_elbow_joint' type='revolute'>
+        <pose>0 -1.7347234759768071e-18 1.7347234759768071e-18 0 0 0</pose>
+        <parent>ur5_upper_arm_link</parent>
+        <child>ur5_forearm_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.1415926535897931</lower>
+            <upper>3.1415926535897931</upper>
+            <effort>150</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ur5_forearm_link'>
+        <pose>0.32499999978764804 -1.1657341758564144e-15 -0.012513434952689195 -1.5707963265897922 1.0254923500370916e-05 -3.1415926535897878</pose>
+        <inertial>
+          <pose>-0.1961 0 0.0070000000000000001 0 1.5707963267948966 0</pose>
+          <mass>2.2749999999999999</mass>
+          <inertia>
+            <ixx>0.031209355099586299</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.031209355099586299</iyy>
+            <iyz>0</iyz>
+            <izz>0.0040949999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_forearm_link_collision'>
+          <pose>0 0 0.0070000000000000001 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/forearm.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_forearm_link_visual'>
+          <pose>0 0 0.0070000000000000001 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/forearm.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='ur5_wrist_1_joint' type='revolute'>
+        <pose>-1.1102230246251565e-16 -6.9388939039072284e-18 0 0 0 0</pose>
+        <parent>ur5_forearm_link</parent>
+        <child>ur5_wrist_1_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>28</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ur5_wrist_1_link'>
+        <pose>0.7171999997642009 -0.13329999999999875 -0.01250946980446388 -1.5707963265897911 2.8654187367557312e-15 -3.14159265358979</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1.2190000000000001</mass>
+          <inertia>
+            <ixx>0.0025598989760399998</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0025598989760399998</iyy>
+            <iyz>0</iyz>
+            <izz>0.0021941999999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_wrist_1_link_collision'>
+          <pose>0 0 -0.127 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/wrist1.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_wrist_1_link_visual'>
+          <pose>0 0 -0.127 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/wrist1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='ur5_wrist_2_joint' type='revolute'>
+        <pose>0 2.7755575615628914e-17 0 0 -2.8698592549372254e-42 0</pose>
+        <parent>ur5_wrist_1_link</parent>
+        <child>ur5_wrist_2_link</child>
+        <axis>
+          <xyz>-2.8698592549372254e-42 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>28</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ur5_wrist_2_link'>
+        <pose>0.71719999976420101 -0.13329999995910125 0.087190530195535132 4.1020720133803563e-10 2.8317137671132492e-15 3.1415926535897913</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1.2190000000000001</mass>
+          <inertia>
+            <ixx>0.0025598989760399998</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0025598989760399998</iyy>
+            <iyz>0</iyz>
+            <izz>0.0021941999999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_wrist_2_link_collision'>
+          <pose>0 0 -0.099699999999999997 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/wrist2.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_wrist_2_link_visual'>
+          <pose>0 0 -0.099699999999999997 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/wrist2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='ur5_wrist_3_joint' type='revolute'>
+        <pose>-1.1102230246251565e-16 -2.7755575615628914e-17 0 0 0 1.2325951644078309e-32</pose>
+        <parent>ur5_wrist_2_link</parent>
+        <child>ur5_wrist_3_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>28</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ur5_wrist_3_link'>
+        <pose>0.71719999976420068 -0.2328999999591006 0.087190530215964124 -1.5707963265897857 -1.1736654775068034e-06 3.1415926535897913</pose>
+        <inertial>
+          <pose>-0.1262732553245223 -3.0162642970459559e-17 0.021632368044448149 0 0 0</pose>
+          <mass>1.1879</mass>
+          <inertia>
+            <ixx>0.0064866327862703682</ixx>
+            <ixy>-3.4365223835791969e-18</ixy>
+            <ixz>0.001255144793332767</ixz>
+            <iyy>0.019175890835492041</iyy>
+            <iyz>7.8722017305345524e-19</iyz>
+            <izz>0.02096153864732166</izz>
+          </inertia>
+        </inertial>
+        <collision name='ur5_wrist_3_link_collision'>
+          <pose>0 0 -0.098900000000000002 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/collision/wrist3.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='ur5_wrist_3_link_fixed_joint_lump__base_link_collision_1'>
+          <pose>0 0 0 -2.4651903288156619e-32 -2.2204460492503131e-16 2.2204460492503131e-16</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://my_robot_arm/meshes/Test2_Base_Link_Body.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='ur5_wrist_3_link_visual'>
+          <pose>0 0 -0.098900000000000002 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://ur_description/meshes/ur5e/visual/wrist3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='ur5_wrist_3_link_fixed_joint_lump__base_link_visual_1'>
+          <pose>0 0 0 -2.4651903288156619e-32 -2.2204460492503131e-16 2.2204460492503131e-16</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://my_robot_arm/meshes/Test2_Base_Link_Body.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='finger_joint' type='prismatic'>
+        <pose>-2.2204460492503131e-16 0 0 0 0 0</pose>
+        <parent>ur5_wrist_3_link</parent>
+        <child>finger_link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-10.09</lower>
+            <upper>10.077999999999999</upper>
+            <effort>2000</effort>
+            <velocity>10</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='finger_link'>
+        <pose>0.77719999976415899 -0.29289999995889521 0.088190459808341615 -1.5707963265897786 -1.1736654756619504e-06 3.1415926535897922</pose>
+        <inertial>
+          <pose>-0.14999999999999999 0 0.029999999999999999 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.0059450809552999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.015075327303199999</iyy>
+            <iyz>0</iyz>
+            <izz>0.017270409758499999</izz>
+          </inertia>
+        </inertial>
+        <collision name='finger_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://my_robot_arm/meshes/Test2_finger_body.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='finger_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file://<urdf-string>/model://my_robot_arm/meshes/Test2_finger_body.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <plugin name='gz_ros2_control::GazeboSimROS2ControlPlugin' filename='gz_ros2_control-system'>
+        <parameters>/workspace/install/share/my_robot_arm/config/ros2_control.yaml</parameters>
+      </plugin>
+      <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+        <render_engine>ogre2</render_engine>
+      </plugin>
+      <frame name='ur5_base_link-base_fixed_joint' attached_to='ur5_base_link'>
+        <pose>0 0 0 0 0 3.1415926535897931</pose>
+      </frame>
+      <frame name='ur5_base' attached_to='ur5_base_link-base_fixed_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='ur5_base_link-base_link_inertia' attached_to='ur5_base_link'>
+        <pose>0 0 0 0 0 3.1415926535897931</pose>
+      </frame>
+      <frame name='ur5_base_link_inertia' attached_to='ur5_base_link-base_link_inertia'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='gripper_joint' attached_to='ur5_tool0'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='base_link' attached_to='gripper_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='ur5_flange-tool0' attached_to='ur5_flange'>
+        <pose>0 0 0 1.5707963267948959 -5.5511151231257827e-17 1.5707963267948959</pose>
+      </frame>
+      <frame name='ur5_tool0' attached_to='ur5_flange-tool0'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='ur5_wrist_3-flange' attached_to='ur5_wrist_3_link'>
+        <pose>0 0 0 -1.5707963267948957 -1.5707963267948966 0</pose>
+      </frame>
+      <frame name='ur5_flange' attached_to='ur5_wrist_3-flange'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='ur5_wrist_3_link-ft_frame' attached_to='ur5_wrist_3_link'>
+        <pose>0 0 0 3.1415926535897931 0 0</pose>
+      </frame>
+      <frame name='ur5_ft_frame' attached_to='ur5_wrist_3_link-ft_frame'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <pose>1.2 6.9388939039072284e-18 2.2999999999999998 -1.374587539350384e-17 -1.0579653396238094e-16 -2.8831853071795868</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='CoffeeTable_0'>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coffeetable/2/files/meshes/CoffeeTable.obj</uri>
+              <scale>0.0081700000000000002 0.0081700000000000002 0.0081700000000000002</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coffeetable/2/files/meshes/CoffeeTable.obj</uri>
+              <scale>0.0081700000000000002 0.0081700000000000002 0.0081700000000000002</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.56687200069427479 0.42582836747169484 -0.00012165949702201704 8.0053041497958057e-13 1.0318701436121706e-12 -3.8868601140289536e-17</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Coke_0'>
+      <static>true</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coke/3/files/meshes/coke.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coke/3/files/meshes/coke.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.0033666666666666671</ixx>
+            <iyy>0.00086666666666666674</iyy>
+            <izz>0.0041666666666666675</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.44312599301338196 0.49829500913619995 0.37082678079605103 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

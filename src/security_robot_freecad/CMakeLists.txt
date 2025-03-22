@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(my_robot_arm)
+project(security_robot_freecad)
 
 find_package(ament_cmake REQUIRED)
 
@@ -15,15 +15,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY launch meshes rviz urdf config
+install(DIRECTORY launch meshes rviz urdf
   DESTINATION share/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-   my_robot_arm/gripper.py
-   my_robot_arm/arm.py
-   my_robot_arm/allow_coke_collisions.py
-   DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()
