@@ -1,8 +1,20 @@
+caster_wheeljoint
+
 <?xml version='1.0' encoding='utf-8'?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="krytn">
 
-    <xacro:include filename="$(find my_first_robot_freecad)/urdf/FirstRobot.urdf" />
+    <xacro:include filename="$(find magni_description)/urdf/inertial.xacro" />
+    <xacro:include filename="$(find security_robot_freecad)/urdf/FirstRobot.urdf" />
+    <xacro:include filename="$(find sensors)/realsense_d435/realsense.urdf.xacro" />
+    <xacro:include filename="$(find sensors)/lidar_2d/lidar_2d.urdf.xacro" />
 
+    <xacro:realsense world_link_name="base_link">
+        <origin xyz="-1.171 0 1.5" rpy="0 0 0" />
+    </xacro:realsense>
+
+    <xacro:lidar_2d world_link_name="base_link">
+        <origin xyz="-0.8 0 0.52" rpy="0 0 0" />
+    </xacro:lidar_2d>
 
     <gazebo reference="caster_wheel">
 
@@ -89,7 +101,27 @@
             <state_interface name="effort" />
         </joint>
 
+        <joint name="Front_Left_Wheel_Joint">
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
 
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort" />
+        </joint>
+
+        <joint name="Front_Right_Wheel_Joint">
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort" />
+        </joint>
     </ros2_control>
 
     <!-- Setup Gazebo plugins -->
