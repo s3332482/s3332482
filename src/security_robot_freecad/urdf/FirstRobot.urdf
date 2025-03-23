@@ -34,7 +34,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <cylinder length="0.03000000000000005" radius="0.06"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
@@ -55,7 +55,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <cylinder length="0.03000000000000005" radius="0.06"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
@@ -76,7 +76,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <cylinder length="0.03000000000000005" radius="0.06"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
@@ -97,7 +97,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <cylinder length="0.03000000000000005" radius="0.06"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
@@ -115,10 +115,10 @@
       </geometry>
     </visual>
     <collision>
-      <!--Chassis Sensor/Body002.-->
-      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <!--Adjustable Wheel.Body_bbox-->
+      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Chassis_Sensor001.dae"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
