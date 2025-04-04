@@ -34,7 +34,11 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
+        <<<<<<< HEAD
         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
+=======
+        <cylinder length="0.03000000000000005" radius="0.3"/>
+>>>>>>> b63b7dc47e0a50736f4a9f6905e179403ae44300
       </geometry>
     </collision>
     <inertial>
@@ -55,7 +59,11 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
+        <<<<<<< HEAD
         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
+=======
+        <cylinder length="0.03000000000000005" radius="0.3"/>
+>>>>>>> b63b7dc47e0a50736f4a9f6905e179403ae44300
       </geometry>
     </collision>
     <inertial>
@@ -76,7 +84,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
@@ -97,7 +105,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
+        <cylinder length="0.03000000000000005" radius="0.3"/>
       </geometry>
     </collision>
     <inertial>
@@ -118,7 +126,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Chassis_Sensor001.dae"/>
+        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Chassis_Sensor001.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -148,7 +156,7 @@
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
     </inertial>
   </link>
- <joint name="left_wheel_joint" type="continuous">
+  <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
     <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-0.355 0.25 -0.255"/>
@@ -164,13 +172,13 @@
     <parent link="base_link"/>
     <child link="Front_Left_Wheel"/>
     <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-1.7 0.25 -0.257"/>
-     <axis xyz="0 0 1"/>
+    <axis xyz="0 0 1"/>
   </joint>
   <joint name="Front_Right_Wheel_Joint" type="continuous">
     <parent link="base_link"/>
     <child link="Front_Right_Wheel"/>
     <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-1.7 -0.25 -0.257"/>
-     <axis xyz="0 0 1"/>
+    <axis xyz="0 0 1"/>
   </joint>
   <joint name="Sensor_Joint_01" type="fixed">
     <parent link="base_link"/>
