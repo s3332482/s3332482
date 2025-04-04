@@ -17,7 +17,7 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="6.4799999999999995"/>
+      <mass value="1.4799999999999995"/>
       <origin rpy="0.0 -0.0 0.0" xyz="-0.15 -8.7e-18 4e-19"/>
       <inertia ixx="0.022464" ixy="0.0" ixz="-0.0" iyy="0.049464" iyz="0.0" izz="0.0702"/>
     </inertial>
@@ -34,7 +34,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <cylinder length="0.03000000000000005" radius="0.06"/>
+        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -55,7 +55,7 @@
       <!--Adjustable Wheel.Body_bbox-->
       <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <cylinder length="0.03000000000000005" radius="0.06"/>
+        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -73,16 +73,16 @@
       </geometry>
     </visual>
     <collision>
-      <!--Adjustable Wheel/Body.-->
-      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <!--Adjustable Wheel.Body_bbox-->
+      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="0.7509245446194294"/>
+      <origin rpy="0.0 -0.0 0.0" xyz="-1.38e-17 -2.1e-18 -1e-19"/>
+      <inertia ixx="0.0006186158699452" ixy="-0.0" ixz="-0.0" iyy="0.0011245930581975" iyz="-0.0" izz="0.0006186158699452"/>
     </inertial>
   </link>
   <link name="Front_Right_Wheel">
@@ -94,16 +94,16 @@
       </geometry>
     </visual>
     <collision>
-      <!--Adjustable Wheel/Body.-->
-      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <!--Adjustable Wheel.Body_bbox-->
+      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.0"/>
-      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
-      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      <mass value="0.7509245446194294"/>
+      <origin rpy="0.0 -0.0 0.0" xyz="-1.38e-17 -2.1e-18 -1e-19"/>
+      <inertia ixx="0.0006186158699452" ixy="-0.0" ixz="-0.0" iyy="0.0011245930581975" iyz="-0.0" izz="0.0006186158699452"/>
     </inertial>
   </link>
   <link name="Sensor_Link_01">
@@ -115,10 +115,10 @@
       </geometry>
     </visual>
     <collision>
-      <!--Chassis Sensor/Body002.-->
-      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <!--Adjustable Wheel.Body_bbox-->
+      <origin rpy="0.0 -0.0 0.0" xyz="0.0 0.0 0.015"/>
       <geometry>
-        <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Chassis_Sensor001.dae"/>
+         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Chassis_Sensor001.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -148,27 +148,29 @@
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
     </inertial>
   </link>
-  <joint name="left_wheel_joint" type="continuous">
+ <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-0.355 0.25 -0.35"/>
+    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-0.355 0.25 -0.255"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-0.355 -0.25 -0.35"/>
+    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-0.355 -0.25 -0.255"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="Front_Left_Wheel_Joint" type="continuous">
     <parent link="base_link"/>
     <child link="Front_Left_Wheel"/>
-    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-1.7 0.25 -0.37"/>
+    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-1.7 0.25 -0.257"/>
+     <axis xyz="0 0 1"/>
   </joint>
   <joint name="Front_Right_Wheel_Joint" type="continuous">
     <parent link="base_link"/>
     <child link="Front_Right_Wheel"/>
-    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-1.7 -0.25 -0.37"/>
+    <origin rpy="-1.5707963267948966 0.0 0.0" xyz="-1.7 -0.25 -0.257"/>
+     <axis xyz="0 0 1"/>
   </joint>
   <joint name="Sensor_Joint_01" type="fixed">
     <parent link="base_link"/>

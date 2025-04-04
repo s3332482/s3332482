@@ -5,6 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
+from launch.actions import TimerAction  # Add this import at the top with other imports
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
@@ -25,8 +26,22 @@ def generate_launch_description():
     # Gazebo hint for resources.
     os.environ['GZ_SIM_RESOURCE_PATH'] = path_to_share_dir_clipped
 
+    # # Ensure `SDF_PATH` is populated since `sdformat_urdf` uses this rather
+    # # than `GZ_SIM_RESOURCE_PATH` to locate resources.
+    # if "GZ_SIM_RESOURCE_PATH" in os.environ:
+    #     gz_sim_resource_path = os.environ["GZ_SIM_RESOURCE_PATH"]
+
+    #     if "SDF_PATH" in os.environ:
+    #         sdf_path = os.environ["SDF_PATH"]
+    #         os.environ["SDF_PATH"] = sdf_path + ":" + gz_sim_resource_path
+    #     else:
+    #         os.environ["SDF_PATH"] = gz_sim_resource_path
+
+    # cafe_world_uri = "empty.sdf"
+   
     # Ensure `SDF_PATH` is populated since `sdformat_urdf` uses this rather
     # than `GZ_SIM_RESOURCE_PATH` to locate resources.
+    
     if "GZ_SIM_RESOURCE_PATH" in os.environ:
         gz_sim_resource_path = os.environ["GZ_SIM_RESOURCE_PATH"]
 
@@ -36,8 +51,7 @@ def generate_launch_description():
         else:
             os.environ["SDF_PATH"] = gz_sim_resource_path
 
-    cafe_world_uri = "empty.sdf"
-   
+    cafe_world_uri = join(get_package_share_directory("my_first_robot"), "worlds", "test.sdf")
 
     # Gazebo Sim.
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
@@ -85,7 +99,13 @@ def generate_launch_description():
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/model/FirstRobot/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist'],
+        arguments=['/model/FirstRobot/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
+                   '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+                   '/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/lidar/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked',
+                   '/realsense/image@sensor_msgs/msg/Image[gz.msgs.Image',
+                   '/realsense/depth@sensor_msgs/msg/Image[gz.msgs.Image',
+                   '/realsense/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked'],
         output='screen',
         remappings=[('/model/FirstRobot/cmd_vel','/cmd_vel')]
     )
@@ -108,6 +128,20 @@ def generate_launch_description():
         output="screen"
     )  
 
+    static_pub = Node(package="tf2_ros", 
+                      executable="static_transform_publisher",
+                      arguments=["0","0","0","0","0","0", "lidar_2d_link", "FirstRobot/base_link/lidar_2d_v1", ])
+    
+    static_pub2 = Node(package="tf2_ros", 
+                      executable="static_transform_publisher",
+                      arguments=["0","0","0","0","0","0",  "realsense_link", "FirstRobot/base_link/realsense_d435"])
+
+
+  # Wrap start_controllers in TimerAction for 5 second delay
+    delayed_controller_start = TimerAction(
+        period=5.0,
+        actions=[start_controllers]
+    )
 
     return LaunchDescription([
         use_sim_time_launch_arg,
