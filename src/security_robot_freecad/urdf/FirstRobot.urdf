@@ -58,9 +58,7 @@
       <geometry>
         <<<<<<< HEAD
         <mesh filename="package://security_robot_freecad/meshes/first_robot_Security_3_Alt_3_working_version_2_Body.dae"/>
-=======
         <cylinder length="0.03000000000000005" radius="0.3"/>
->>>>>>> b63b7dc47e0a50736f4a9f6905e179403ae44300
       </geometry>
     </collision>
     <inertial>
